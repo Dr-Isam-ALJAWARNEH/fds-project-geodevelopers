@@ -1,1 +1,2 @@
-Please use this file to start drafting the "Introduction" for the project.
+Word Count: 500–700 words
+What to Include: Context and background of the research, the problem or question being addressed, a brief review of related work, the motivation and significance of your study, a clear statement of your research objectives or hypothesis.
