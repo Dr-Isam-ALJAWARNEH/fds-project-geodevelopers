@@ -1,1 +1,11 @@
-Please use this file to start drafting the "Related Literature" for the project.
+Word Count: 500–800 words
+What to Include:
+  1. Overview of Existing Research: Summarize key studies and findings relevant to your topic. Highlight the most influential works in the field.
+  2. Identification of Gaps: Point out limitations or gaps in the existing literature that your research aims to address.
+  3. Connection to Your Work: Clearly explain how your study builds on or diverges from previous research. Show how it contributes to advancing the field.
+  4. Theoretical Frameworks or Models: If applicable, mention any frameworks or models that underpin your research.
+
+Tips for Writing:
+  - Use a logical flow to group studies by themes, methodologies, or findings.
+  - Cite sources using the IEEE citation style (e.g., [1], [2]).
+  - Avoid excessive detail; focus on studies most relevant to your research.
