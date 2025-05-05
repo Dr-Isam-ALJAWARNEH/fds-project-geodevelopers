@@ -1,2 +1,32 @@
 Word Count: 700–1,000 words
 What to Include: Detailed description of the methods, tools, and techniques used, definitions of relevant terminology, any equations or algorithms applied, enough detail for replication of your work.
+
+Methodology
+
+This section explains the methodology implemented to analyze the spatial pollution data and generate effective minimum spanning tree path for optimizing pollution monitoring networks.
+
+It is essential to collect a large data set during different timestamps or from different resources. A large data set has been collected, analyzed based on the available environmental and functional variables to select the best pollution columns, filtered to remove the missing values and outliers, multiple tables was generated based on different criteria’s grouping, sampling and clustering to generate the best MST path, and provide a recommendation to increase / decrease the number of required sensor in each cluster. The reason behind each process is explained in the following subsections.
+
+A. Analyzing Data
+Scatter plots are commonly used to display the relationship between two numerical or quantitative variables. In this study, it was used to detect the outliers, check the effects of environmental effects on the pollution level to remove unnecessary data and reduce the volume for efficient analyses and running time. 
+
+B. Geohash Encoding
+A common practice to work with large geospatial data is to use Geohash, introduced in 2008 by Gustavo Niemeyer. Geohash encodes the geographic coordinates (latitude and longitude) into a short numerical string to aggregate nearby points into grid-like regions. The precision varies between 1 to 10 characters, where the larger characters increase the spatial resolution (represent a smaller area). This method is effective in studies involving a proximate spatial analysis as it simplifies and speed up the data querying process. In this study, it is used to group the sensors data and get the average pollution level. 
+
+C. Sampling
+Sampling is essential part of data science, as it involves the process of selecting a subset of observation from population or large dataset. Samples enable scientist to reduce the data volume while preserving the population characteristics, ensure proper representative, minimize redundancy and optimize resources. Some of the important methods of sampling are sampling with replacement, when the sampled individual is selected from array and it possible to select the same sample again, and the sampling with-out replacement, when the sampled individual is not in returned to the population until all required individuals are selecting, which will be used in this study to select a random sample from population to balance the representative preservation and allow efficient clustering process. 
+
+D. K-Means algorithm
+
+
+E. DBSCAN algorithm
+
+
+F. Centroids 
+
+
+G. Dijkstra’s algorithm
+
+
+H. Kruskal's algorithm
+Alternative solution, Kruskal's algorithm, introduced in 1956 by Joseph Kruskal is used to compute the minimum spanning tree (MST) based on the weighted path without cycles. Kruskal's algorithm operates by sorting all weighted edges in ascending order, adding the shortest edges to the MST until all vertices are connected without cycles. The algorithm is effective for geospatial optimization tasks and network designs. In this study, the minimum spanning tree is used to find the best path to connect all sensors based on the spatial distance and the weighted pollutions average for optimizing pollution monitoring networks.
