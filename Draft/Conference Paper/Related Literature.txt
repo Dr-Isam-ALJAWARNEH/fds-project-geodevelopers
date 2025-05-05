@@ -15,7 +15,9 @@ This study [2] presents a thorough examination of the relationships between part
 The Dijkstra algorithm is the best approach to analyzing the shortest path, with the existing work that improves this algorithm. This research study mainly focuses on  how to get the best path for optimization using the A* algorithm under a mobile gas environment [3].  The Dijkstra algorithm is used to find out the shortest paths through a road network. A* algorithm is a learning technique used to optimize routing decisions based on various factors [4]. A* algorithm was first proposed by Peter Hart, Nils Nilsson, and Raphael. Unlike the Dijkstra algorithm, which doesn’t know how far the final state, the A* algorithm has a vertex from start to current and from current to the desired state. While it is not a breadth-first search, the A* algorithm is a heuristic search method commonly used to find the shortest path [3]. To get the best path from source to destination we used a specific  function of A* algorithm which is : 
 f(j) = g(j) + h(j)
 Where g (n) is the path cost from the starting state to vertex n, and h (n) is the approximate cost of the shortest path from vertex (n) to the desired state, so we have f (n) = the approximate cost of the best path that continues from vertex (n) to the desired goal. [4]
-
+-------------
+The Minimum Spanning Tree (MST) algorithm and clustering have been extensively used to enhance sensor networks for pollution monitoring. These methods have also been applied in various fields, such as environmental monitoring and vehicular ad hoc networks (VANETs). VANET Cluster-on-Demand MST Prim Algorithm, a paper presented by J. J. Kponyo et al., uses Prim’s algorithm to form vehicle clusters based on GPS data. It focuses on minimizing cluster sizes to ensure Quality of Service (QoS) by limiting the number of vehicles per cluster and keeping them within a specified distance from the cluster head. This approach provides excellent interaction, especially in environments where maintaining reliable data flow is crucial [6].
+----------------
 
 
 
@@ -23,4 +25,7 @@ Where g (n) is the path cost from the starting state to vertex n, and h (n) is t
 [3] 	F. W. J. L. Gen Tian*, "An Improved Best Path Methodology for Mobile GIS Based On A* Algorithm," in 2011 2nd International Conference on Artificial Intelligence, Management Science and Electronic Commerce (AIMSEC), Dengleng, china, 2011. 
 [4] 	P. G. M. S. &. R. C. Muthuvel P, "Optimizing Road Networks: A Graph-Based Analysis with Path-finding and Learning Algorithms," International Journal of Intelligent Transportation Systems Research, vol. 23, no. 1, p. 315–329, 2024. 
 [5] 	P. N. Stuart Russell, Artificial Intelligence: A Modern Approach, Hoboken: Pearson, 2020 (4th edition). 
+[6]   J. J. Kponyo et al., "VANET Cluster-on-Demand MST Prim Algorithm," IEEE Transactions on Vehicular Technology, vol. 62, no. 6, pp. 2902-2914, 2019.
+
+
 
