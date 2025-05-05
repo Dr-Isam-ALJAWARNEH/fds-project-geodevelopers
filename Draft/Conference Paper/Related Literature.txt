@@ -18,6 +18,7 @@ Where g (n) is the path cost from the starting state to vertex n, and h (n) is t
 
 
 
+
 [2] Rowland, O.E. Comparative analysis of meteorological parameters and their relationship with NO2, PM10, PM2.5 and O3 concentrations at selected urban air quality monitoring stations in Krakow, Paris, and Milan. Discov Environ 2, 75 (2024). https://doi.org/10.1007/s44274-024-00060-2
 [3] 	F. W. J. L. Gen Tian*, "An Improved Best Path Methodology for Mobile GIS Based On A* Algorithm," in 2011 2nd International Conference on Artificial Intelligence, Management Science and Electronic Commerce (AIMSEC), Dengleng, china, 2011. 
 [4] 	P. G. M. S. &. R. C. Muthuvel P, "Optimizing Road Networks: A Graph-Based Analysis with Path-finding and Learning Algorithms," International Journal of Intelligent Transportation Systems Research, vol. 23, no. 1, p. 315–329, 2024. 
