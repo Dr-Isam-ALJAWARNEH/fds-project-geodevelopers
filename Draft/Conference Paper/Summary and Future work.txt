@@ -1,1 +1,7 @@
-Please use this file to start drafting the "Summary and Future work" for the project.
+Word Count: 400–600 words
+What to Include:
+  1. Restate Key Findings: Begin by summarizing the main results and contributions of your research. Highlight the significance of your work in addressing the problem or advancing the field.
+  2. Conclude the Study: Provide a concise conclusion that ties together the objectives, methodology, and outcomes of your research.
+  3. Limitations: Briefly acknowledge any limitations of your study that may affect the interpretation of results.
+  4. Propose Future Directions: Suggest specific areas for improvement or further exploration based on your findings. Include potential research questions or challenges to tackle.
+  5. Practical Applications: If applicable, mention how your work could be extended for real-world applications or interdisciplinary studies.
