@@ -1,2 +1,16 @@
 Word Count: 500–700 words
 What to Include: Context and background of the research, the problem or question being addressed, a brief review of related work, the motivation and significance of your study, a clear statement of your research objectives or hypothesis.
+=======
+Please use this file to start drafting the "Introduction" for the project.
+
+Air pollution is the most discussed issue in all times. According to the World Health Organization (WHO), exposure to contaminated air has led to an estimated 7 million premature deaths each year, mainly due to cardiovascular diseases, respiratory illnesses, and lung cancer [1]. 
+
+
+
+
+
+
+
+
+
+[1] World Health Organization, “Health community calls for urgent action for clean air ahead of WHO conference,” World Health Organization, Jan. 27, 2025. [Online]. Available: https://www.who.int/news/item/27-01-2025-health-community-calls-for-urgent-action-for-clean-air-ahead-of-who-conference

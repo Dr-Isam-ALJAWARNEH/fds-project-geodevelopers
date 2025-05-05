@@ -1,1 +1,18 @@
-Please use this file to start drafting the "Related Literature" for the project.
+Word Count: 500–800 words
+What to Include:
+  1. Overview of Existing Research: Summarize key studies and findings relevant to your topic. Highlight the most influential works in the field.
+  2. Identification of Gaps: Point out limitations or gaps in the existing literature that your research aims to address.
+  3. Connection to Your Work: Clearly explain how your study builds on or diverges from previous research. Show how it contributes to advancing the field.
+  4. Theoretical Frameworks or Models: If applicable, mention any frameworks or models that underpin your research.
+
+Tips for Writing:
+  - Use a logical flow to group studies by themes, methodologies, or findings.
+  - Cite sources using the IEEE citation style (e.g., [1], [2]).
+  - Avoid excessive detail; focus on studies most relevant to your research.
+
+
+This study [2] presents a thorough examination of the relationships between particulate matter (PM2.5), nitrogen dioxide (NO2), and ground-level ozone (O3) in terms of their concentrations in three cities influenced by meteorological conditions. The correlation between PM2.5 and NO2 is discovered to be negative between temperature and both NO2 and PM concentrations including PM2.5 which suggests that higher temperatures are associated with lower concentrations of NO2 and PM2.5. It is observed that O3 concentrations are positively correlated with temperature with correlation values of 0.51, 0.74, and 0.46 in Krakow, Milan, and Paris, respectively reflecting that as temperatures rise, O3 levels also increase. Moreover, PM2.5 tends to have higher concentrations during cooler months and lower temperatures in hotter months. The discussion of temporal variations of NO2, PM10, and PM2.5 is vital and in this paper, it is found that concentrations are higher during winter and nighttime, while O3 peaked in summer and midday. Additionally, O3 concentrations were found to be higher on weekends due to decreased anthropogenic emissions, which can also affect the levels of NO2 and PM2.5. It is necessary to understand these relationships for developing air quality management strategies.
+
+
+
+[2] Rowland, O.E. Comparative analysis of meteorological parameters and their relationship with NO2, PM10, PM2.5 and O3 concentrations at selected urban air quality monitoring stations in Krakow, Paris, and Milan. Discov Environ 2, 75 (2024). https://doi.org/10.1007/s44274-024-00060-2

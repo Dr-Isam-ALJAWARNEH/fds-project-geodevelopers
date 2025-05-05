@@ -1,1 +1,2 @@
-Please use this file to start drafting the "Methodology and System Architecture" for the project.
+Word Count: 700–1,000 words
+What to Include: Detailed description of the methods, tools, and techniques used, definitions of relevant terminology, any equations or algorithms applied, enough detail for replication of your work.
