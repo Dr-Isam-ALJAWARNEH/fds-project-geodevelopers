@@ -30,6 +30,8 @@ The process started by removing the NaN values from Latitude, Longitude, and the
 
 
 F. Centroids 
+Centroid based algorithm represents all of its objects at the same level of central vectors which does not need to be a part of the dataset. In any of the centroid-based algorithms, main underlying subject is the feature of calculating the distance measure between the points of the data set. 
+The clustering algorithm has its centroid being the mean of all points weighted by the degree of belonging to a specific cluster. [7]
 
 
 G. Dijkstra’s algorithm
@@ -46,6 +48,6 @@ Alternative solution, Kruskal's algorithm, introduced in 1956 by Joseph Kruskal 
 [4] P. B. Guttoski, M. S. Sunye and F. Silva, "Kruskal's Algorithm for Query Tree Optimization," 11th International Database Engineering and Applications Symposium (IDEAS 2007), Banff, AB, Canada, 2007, pp. 296-302.
 [5] R. M. D. M. G. S. R. Grace R. Kingsy and B. N. R. K. Usha, "Air Pollution Analysis Using Enhanced K-Means Clustering Algorithm for Real-Time Sensor Data," in 2016 IEEE Region 10 Conference (TENCON), Singapore, 2016. 
 [6] B. a. G. R. J. Actkinson, "Detecting plumes in mobile air quality monitoring time series with density-based spatial clustering of applications with noise," Atmospheric Measurement Techniques (AMT), vol. 16, no. 14, p. 3547–3559, 2023. 
-
+[7] S. K. Uppada, "Centroid Based Clustering Algorithms – A Clarion Study," International Journal of Computer Science and Information Technologies (IJCSIT), vol. 5, no. 6, p. 7309–7313, 2014. 
 
 
