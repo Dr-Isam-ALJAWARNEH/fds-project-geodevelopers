@@ -17,9 +17,16 @@ C. Sampling
 Sampling is essential part of data science, as it involves the process of selecting a subset of observation from population or large dataset. Samples enable scientist to reduce the data volume while preserving the population characteristics, ensure proper representative, minimize redundancy and optimize resources. Some of the important methods of sampling are sampling with replacement, when the sampled individual is selected from array and it possible to select the same sample again, and the sampling with-out replacement, when the sampled individual is not in returned to the population until all required individuals are selected [3], which will be used in this study to select a random sample from population to balance the representative preservation and allow efficient clustering process. 
 
 D. K-Means algorithm
+The K-Means clustering algorithm is a dividing clustering method that separates data into K number of groups. The K-means algorithm is particularly effective at rapidly and efficiently clustering large amounts of data.
+K-Means clustering algorithm is an unsupervised clustering algorithm in which the centroids are initialized with any number. The K-Means algorithm is very sensitive to the starting vertex. It is used to analyze air pollution to improve both the correctness and proficiency of the clustering process. [5]
+K-Means requires clusters to be defined in advance and counts the outliers, whereas DBSCAN checks the data, creates the clusters based on the data, and removes the outliers as well. For our pollution-based data, we went for DBSCAN, which is one of the ideal methods of clustering for pollution-based data.
+We started by taking the relevant columns and applying a scaling feature to standardize the data. K-Means was applied by using 5 clusters to partition the scaled data into groups based on proximity. The scaled centroids were transformed back into the geographic coordinates.
 
 
 E. DBSCAN algorithm
+
+DBSCAN was invented by Ester et al. in 1996. A clustering algorithm that clusters points based on whether they fall into a predetermined neighbourhood with other points. This method can cluster points with more complicated shapes and is not sensitive to initial values.  This algorithm does not require clustering for all points, letting those points that do not fall into a particular cluster be defined as noise. [6]
+The process started by removing the NaN values from Latitude, Longitude, and the pollution column. It scales the data using StandardScaler to ensure constant distance. The DBSCAN algorithm was applied by giving a 0.3 value of epsilon, which defines how close the other points should be so that they can be considered as neighbours. This is done to pinpoint the density of our data. Afterwards, the noises were removed by giving it a -1 value, then grouped the remaining data, and computed centroids from it. 
 
 
 F. Centroids 
@@ -37,8 +44,8 @@ Alternative solution, Kruskal's algorithm, introduced in 1956 by Joseph Kruskal 
 [2] R. Moussalli, M. Srivatsa and S. Asaad, "Fast and Flexible Conversion of Geohash Codes to and from Latitude/Longitude Coordinates," 2015 IEEE 23rd Annual International Symposium on Field-Programmable Custom Computing Machines, Vancouver, BC, Canada, 2015, pp. 179-186.
 [3] D. Adhikari, A. Datta, J. DeNero, D. Garcia, A. Gunn, J. Hellerstein, J. Huang, S. Mahajan, D. Patterson, and J. Ullman, Computational and Inferential Thinking: The Foundations of Data Science.
 [4] P. B. Guttoski, M. S. Sunye and F. Silva, "Kruskal's Algorithm for Query Tree Optimization," 11th International Database Engineering and Applications Symposium (IDEAS 2007), Banff, AB, Canada, 2007, pp. 296-302.
-
-
+[5] R. M. D. M. G. S. R. Grace R. Kingsy and B. N. R. K. Usha, "Air Pollution Analysis Using Enhanced K-Means Clustering Algorithm for Real-Time Sensor Data," in 2016 IEEE Region 10 Conference (TENCON), Singapore, 2016. 
+[6] B. a. G. R. J. Actkinson, "Detecting plumes in mobile air quality monitoring time series with density-based spatial clustering of applications with noise," Atmospheric Measurement Techniques (AMT), vol. 16, no. 14, p. 3547–3559, 2023. 
 
 
 
