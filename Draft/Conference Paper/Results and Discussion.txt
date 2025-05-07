@@ -41,13 +41,10 @@ The further analysis has been applied to the calibrated pollutants, Scatter plot
 
 1. The cleaned time-series data shows that the trending line is horizontal indicating no relationship between pollutant data and time during the collected period (July 2021 - October 2021). 
 
-2. 
 
-<<<<<<< Updated upstream
-3. 
-=======
-2. Pollution vs Reading Date 
-According to the scatter plot of CalibratedPM25, CalibratedO3, and CalibratedNO2, there is minor variations over time but no clear increasing or decreasing trend. The temporal stability of PM2.5 and NO2 indicates that the time does not significantly impact the behavior of pollution levels. 
+2. Pollution vs ReadingDate 
+According to the scatter plot of CalibratedPM25, CalibratedO3, and CalibratedNO2, there is minor variations over time but no clear increasing or decreasing trend. The temporal stability of PM2.5 and NO2 indicates that the time does not significantly impact the behaviour of pollution levels. 
+
 
 3. Pollution vs Temperature 
 It is evident that caliobratedO3 shows clear positive correlation with increasing temperature when compared to PM2.5 and NO2. Do not show that there is a correlation with the temperature which means that it is driven by pollutant sources rather than ambient temperature.
@@ -58,10 +55,12 @@ CalibratedO3 demonstrates a negative correlation with humidity. However, PM2.5 a
 5. Pollution vs Percent Battery
 The measurement of pollutants remains stable across battery levels, which confirms that sensor readings are independent of power fluctuations. The reason for this behavior lies within the MST algorithm, that can focus on spatial placement instead of battery lifespan which ensures the reliability of the readings during network optimization regardless of battery lifespan.
 
+
+
 6. Pollution vs Cell Signals
 It is notable that there is no correlation between cell signal strength and pollutant concentrations. Despite this, maintaining strong network connectivity is crucial for real-time MST monitoring. As a result, the MST model should prioritize areas in which there is stable connectivity this has an influence on having uninterrupted data transmission in the pollution monitoring network,
 
->>>>>>> Stashed changes
+
 
 Based on the earlier analysis, the device id, location, time and calibrated pollution columns were selected for further analysis. following this selection, a 6 precision geohash codes were generated to support the spatial grouping, and each calibrated pollutant column was normalized to a [0, 1] scale using the minimum and maximum values to ensure a consistent comparison between the columns, and to calculate the total sum of the normalized columns for the study. 
 

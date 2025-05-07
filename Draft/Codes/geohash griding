@@ -1,0 +1,65 @@
+# code for geohas grid
+
+
+import geopandas as gpd
+import pygeohash as gh
+import numpy as np
+from shapely.geometry import Polygon
+import matplotlib.pyplot as plt
+
+# Step 1: Load official Chicago city boundary
+boundary_url = "https://data.cityofchicago.org/api/geospatial/igwz-8jzy?method=export&format=GeoJSON"
+chicago_boundary = gpd.read_file(boundary_url)
+chicago_boundary = chicago_boundary.to_crs("EPSG:4326")
+
+# Step 2: Create bounding box around the city shape
+bounds = chicago_boundary.total_bounds
+lat_min, lon_min, lat_max, lon_max = bounds[1], bounds[0], bounds[3], bounds[2]
+
+# Step 3: Function to create geohash polygons
+def generate_geohash_grid(lat_min, lat_max, lon_min, lon_max, precision):
+    step = 0.002 if precision == 6 else 0.01  # adjust depending on precision
+    geohash_set = set()
+
+    lats = np.arange(lat_min, lat_max, step)
+    lons = np.arange(lon_min, lon_max, step)
+
+    for lat in lats:
+        for lon in lons:
+            geohash_set.add(gh.encode(lat, lon, precision=precision))
+
+    polygons = []
+    for code in geohash_set:
+        lat, lon, lat_err, lon_err = gh.decode_exactly(code)
+        lat0, lat1 = lat - lat_err, lat + lat_err
+        lon0, lon1 = lon - lon_err, lon + lon_err
+        poly = Polygon([
+            (lon0, lat0), (lon0, lat1), (lon1, lat1), (lon1, lat0)
+        ])
+        polygons.append({'geohash': code, 'geometry': poly})
+
+    return gpd.GeoDataFrame(polygons, crs="EPSG:4326")
+
+# Step 4: Generate grids
+geo_df_6 = generate_geohash_grid(lat_min, lat_max, lon_min, lon_max, precision=6)
+geo_df_5 = generate_geohash_grid(lat_min, lat_max, lon_min, lon_max, precision=5)
+
+# Step 5: Clip to real city shape
+geo_df_6_clipped = gpd.overlay(geo_df_6, chicago_boundary, how='intersection')
+geo_df_5_clipped = gpd.overlay(geo_df_5, chicago_boundary, how='intersection')
+
+# Step 6: Plot like IEEE figure
+fig, axes = plt.subplots(1, 2, figsize=(15, 12))
+
+geo_df_6_clipped.boundary.plot(ax=axes[0], color='black', linewidth=0.2)
+axes[0].set_title("a. Geohash 6 — Chicago", fontsize=14)
+axes[0].set_axis_off()
+
+geo_df_5_clipped.boundary.plot(ax=axes[1], color='black', linewidth=0.5)
+axes[1].set_title("b. Geohash 5 — Chicago", fontsize=14)
+axes[1].set_axis_off()
+
+plt.suptitle("Fig. 3 Geohash Cover — City of Chicago, IL", fontsize=16)
+plt.tight_layout()
+plt.subplots_adjust(top=0.93)
+plt.show()
