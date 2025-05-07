@@ -7,4 +7,13 @@ What to Include:
   5. Practical Applications: If applicable, mention how your work could be extended for real-world applications or interdisciplinary studies.
 
 
+
+Futrue Work: 
+
+
+This study focuses on the spatial analysis and optimizing monitoring network through the minimum spanning tree algorithm based on the shortest weighted path collected from Chicago city. It was evident from the results that the best criteria to generate the shortest path is to group the data by geohash to find the average pollution level, apply clustering using DBSCAN algorithm to consider the pollution for nearby points, then generate the minimum spanning tree using Kruskal algorithm. This will contribute to smarter sensing strategies.
+
+This project successfully applied the DBSCAN clustering method and MST techniques to optimize pollution sensor placement in Chicago. First, we will try to integrate dynamic sensor data that could allow MST to be used in real-time. Additionally, we will try to implement the A* algorithm to optimize sensor routes for mobile monitoring. We will try to explore other clustering methods for comparison and will also try to find a way to use k-means for such data by trying to use the Elbow technique. Finally, we will try to expand our data from one city to multiple cities, which would help validate the model’s generalizability
 Although the valuable insights gained through this study, it still has limitations. This study analyzed a representative portion of the original data and this happened because of computational and visualization constraints. In case more data was covered, this would reveal more seasonal and spatial behaviours. In addition to that, the analysis did not include meteorological data such as wind speed and solar radiation which would influence pollutant distribution. The result is generalizable to other urban air quality networks in which the low-cost sensors increase flexibility however, it increases challenges related to data quality. By preprocessing data and develop insights with optimization algorithms, cities can utilize smarter and easy to implement adaptive sensor networks that will improve public health.
+
+
