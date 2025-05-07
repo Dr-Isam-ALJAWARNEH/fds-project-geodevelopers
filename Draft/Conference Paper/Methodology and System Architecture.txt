@@ -40,7 +40,8 @@ G. Dijkstra’s algorithm
 H. Kruskal's algorithm
 Alternative solution, Kruskal's algorithm, introduced in 1956 by Joseph Kruskal is used to compute the minimum spanning tree (MST) based on the weighted path without cycles. Kruskal's algorithm starts by calculating the weight between all the possible vertices pairs. After that, the weighted edges are sorted in ascending order, and the shortest edge is added to the execution query, then the second shortest edge is selected and evaluated if it can be added to the MST or it will perform a cycle, then the process is repeated until all vertices are connected without cycles [4]. The algorithm is effective for geospatial optimization tasks and network designs. In this study, the minimum spanning tree is used to find the best path to connect all sensors based on the spatial distance and the weighted pollutions average for optimizing pollution monitoring networks.
 
-
+I. Accuracy Calculations
+To measure accuracy, as demonstrated in [8] in which the average total running time and clustering accuracy are used as performance metrics during empirical evaluations of their algorithm where it the study evaluation includes comparisons against k-means and other MST algorithms under various conditions. As a result, this paper refers to the same metrics for assessing the efficiency of the algorithm.
 
 [1] I. M. A. Jawarneh, P. Bellavista, A. Corradi, L. Foschini and R. Montanari, "Spatially Representative Online Big Data Sampling for Smart Cities," 2020 IEEE 25th International Workshop on Computer Aided Modeling and Design of Communication Links and Networks (CAMAD), Pisa, Italy, 2020, pp. 1-6.
 [2] R. Moussalli, M. Srivatsa and S. Asaad, "Fast and Flexible Conversion of Geohash Codes to and from Latitude/Longitude Coordinates," 2015 IEEE 23rd Annual International Symposium on Field-Programmable Custom Computing Machines, Vancouver, BC, Canada, 2015, pp. 179-186.
@@ -49,5 +50,7 @@ Alternative solution, Kruskal's algorithm, introduced in 1956 by Joseph Kruskal 
 [5] R. M. D. M. G. S. R. Grace R. Kingsy and B. N. R. K. Usha, "Air Pollution Analysis Using Enhanced K-Means Clustering Algorithm for Real-Time Sensor Data," in 2016 IEEE Region 10 Conference (TENCON), Singapore, 2016. 
 [6] B. a. G. R. J. Actkinson, "Detecting plumes in mobile air quality monitoring time series with density-based spatial clustering of applications with noise," Atmospheric Measurement Techniques (AMT), vol. 16, no. 14, p. 3547–3559, 2023. 
 [7] S. K. Uppada, "Centroid Based Clustering Algorithms – A Clarion Study," International Journal of Computer Science and Information Technologies (IJCSIT), vol. 5, no. 6, p. 7309–7313, 2014. 
+[8] X. Wang, X. Wang and D. Mitchell Wilkes, "A Divide-and-Conquer Approach for Minimum Spanning Tree-Based Clustering," in IEEE Transactions on Knowledge and Data Engineering, vol. 21, no. 7, pp. 945-958, July 2009, doi: 10.1109/TKDE.2009.37.
+
 
 
