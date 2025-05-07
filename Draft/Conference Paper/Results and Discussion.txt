@@ -28,7 +28,7 @@ What to Include:
 Atmospheric air quality is analyzed and explored using hyperlocal air quality dataset collected from sensors spread in different areas in the city of Chicago. The dataset includes calibrated and uncalibrated pollutant values, concurrently with meteorological and device performance parameters. The aim is to understand the behavior, structure, and quality of the parameters that supports the optimized network design developed using the technique of Minimum Spanning Tree (MST).
 
 A. Dataset Exploration and Preprocessing
-An initial check to the 2.46 million data records was implemented in which it is shown that the uncalibrated pollutant values (PM25) shows unreasonable outliers, unlike calibrated readings (CalibratedPM25, CalibratedO3, and CalibratedNO2) that shows reliable data but with missing 34,277 entries for each of them. The way it executed is by filtering the data to return the count of missing values in each column for visualizations and trend analyses. 
+An initial check to the 2.46 million data records was implemented in which it is shown that the uncalibrated pollutant values (PM25) shows unreasonable outliers, unlike calibrated readings (CalibratedPM25, CalibratedO3, and CalibratedNO2) that shows reliable data but with missing 34,277 entries for each one of them. The way it executed is by filtering the data to return the count of missing values in each column for visualizations and trend analyses. 
 The missing data revealed significant gaps in pollutant-related fields:
 - CalibratedPM25: 34277, 1.4% missing
 - CalibratedO3: 34277, 1.4% missing
@@ -43,23 +43,41 @@ The further analysis has been applied to the calibrated pollutants, Scatter plot
 
 2. 
 
+<<<<<<< Updated upstream
 3. 
+=======
+2. Pollution vs Reading Date 
+According to the scatter plot of CalibratedPM25, CalibratedO3, and CalibratedNO2, there is minor variations over time but no clear increasing or decreasing trend. The temporal stability of PM2.5 and NO2 indicates that the time does not significantly impact the behavior of pollution levels. 
+
+3. Pollution vs Temperature 
+It is evident that caliobratedO3 shows clear positive correlation with increasing temperature when compared to PM2.5 and NO2. Do not show that there is a correlation with the temperature which means that it is driven by pollutant sources rather than ambient temperature.
+
+4. Pollution vs Humidity
+CalibratedO3 demonstrates a negative correlation with humidity. However, PM2.5 and NO2 remain unaffected indicating they’re constant despite humidity changes. The MST should be able to recognize its connectivity as response to humidity changes, resulting to optimized sensor placement in the areas that are influenced by moisture levels, which improves the accuracy of environmental monitoring and pollutant detection.
+
+5. Pollution vs Percent Battery
+The measurement of pollutants remains stable across battery levels, which confirms that sensor readings are independent of power fluctuations. The reason for this behavior lies within the MST algorithm, that can focus on spatial placement instead of battery lifespan which ensures the reliability of the readings during network optimization regardless of battery lifespan.
+
+6. Pollution vs Cell Signals
+It is notable that there is no correlation between cell signal strength and pollutant concentrations. Despite this, maintaining strong network connectivity is crucial for real-time MST monitoring. As a result, the MST model should prioritize areas in which there is stable connectivity this has an influence on having uninterrupted data transmission in the pollution monitoring network,
+
+>>>>>>> Stashed changes
 
 Based on the earlier analysis, the device id, location, time and calibrated pollution columns were selected for further analysis. following this selection, a 6 precision geohash codes were generated to support the spatial grouping, and each calibrated pollutant column was normalized to a [0, 1] scale using the minimum and maximum values to ensure a consistent comparison between the columns, and to calculate the total sum of the normalized columns for the study. 
 
 Five different grouping strategies were applied to the dataset, each varying in spatial, sensor or clustering aggregation logic. For each of these aggregation, a minimum spanning tree was generated to analyze the spatial connectivity based on the pollution weight.
  
-The first strategy was to group the data by device ID, calculate the count of the readings and the average value for location and pollutions columns. The aggregation showed that 121 different sensors were used for this analysis. It was observed that certain sensors contributed a large number of readings (approximately 28 thousands), were few had between 5 ~ 10 readings only. MST logic was then applied to this group using the location and total normalized pollution level, and a path of weighted 3.44 was generated. 
+The first strategy was to group the data by device id, calculate the count of the readings and the average value for location and pollutions columns. The aggregation showed that 121 different sensors were used for this analysis. It was observed that certain sensors contributed a large number of readings (approximately 28 thousands), were few had between 5 ~ 10 readings only. MST logic was then applied to this group using the location and total normalized pollution level, and a path weighted 3.44 was generated. 
 
 The second strategy was to use the same sensor grouping, and generate cluster id using DBSCAN method based on the distance with 0.3 epsilon and the total normalized pollution level. The centroid points was then generated based on the average latitude, longitude values, and 88 different vertices was generated. The same MST logic reapplied for this grouping and the weighted path was reduced to 3.14, which indicates the benefits of using clustering to group the data specially when the monitoring networks doesn't required the direct connection between each sensor. 
 
-The third strategy was to group the data by geohash code, calculate the number of sensors in each geohash, the reading counts and the average for the remaining columns. Compared to the sensors grouping, the aggregation showed that the sensors are placed in 106 different geohash grids. The total number of the measured records has also increased were the maximum areas had the average of around 56 thousand readings. The grouping has also showed that the number of sensors in each geohash is between 1 to 3, but most of the areas had 1 sensor only. The MST method was also applied in the same way, and a path of 3.33 was generated, which is slightly better than grouping by sensors only, but higher than the clustered sensors data. 
+The third strategy was to group the data by geohash code, calculate the number of sensors in each geohash, the reading counts and the average for the remaining columns. Compared to the sensors grouping, the aggregation showed that the sensors are placed in 106 different geohash grids. The total number of the measured records has also increased where the maximum areas had around 78 thousand readings. The grouping has also showed that the number of sensors in each geohash is between 1 to 3, although most of the areas had 1 sensor only. The MST method was also applied in the same way, and a path of 3.33 was generated, which is slightly better than grouping by sensors only, but higher than the clustered sensors data. 
 
-The fourth strategy was to use the geohash grouped data, and implement the DBSCAN method with the same epsilon value. The clustering and centroid method has generate 83 different vertices. The MST logic then produced a path of 3.10, which indicates that grouping by geohash then clustering the data produce a better path compared to the above strategies. 
+The fourth strategy was to use the geohash grouped data, and implement the DBSCAN method with the same epsilon value. The clustering and centroid method has generated 83 different vertices. The MST logic then produced a path weighted 3.10, which indicates that grouping by geohash then clustering the data produce a better path compared to the above strategies. 
 
-The fifth strategy was to sample 20% of the data, with stratified sampling distribution based on the reading location. As the data was large without grouping, applying the clustering based on the pollution level, has generated multiple nearby points with different pollution concentration. Due to the high number of vertices, and pollution level, the MST showed a higher weighted path compared to the above strategies with value of 4.34.
+The fifth strategy was to sample 20% of the data, with stratified sampling distribution method based on the reading location. As the data was large without grouping, applying the clustering based on the pollution level, has generated multiple nearby points with different pollution concentration. Due to the high number of vertices, and pollution level, the MST showed a higher weighted path compared to the above strategies with value of 4.34.
 
-The final outcome of this analysis, the fourth strategy, where grouped the data by geohash, to get the average pollution levels, then clustering them, has shown the best average path that will work over the year, the weight might show a lower value compared the most high pollutant period or higher value during the clean or low pollution period. 
+The final outcome of this analysis, the fourth strategy, were grouping the data by geohash, to get the average pollution levels, then clustering them, has shown the best average path that will work over the year, the weight might show a lower value compared the most high pollutant period or higher value during the clean or low pollution period. 
 
 
 Following the best minimum spanning tree analysis, the number of sensors in each geohash compared to the pollution levels and number of observed records were analyzed, to optimize a change to the number of sensors. The sensors range for each area was considered based on the available records which is between 1 to 3 sensors in each geohash. A suggestion to collect more data when the available records in the selected areas were less than 100 were returned, and to increase the number of sensors when the pollution level is greater than 65% and the number of sensors are less than the maximum number, for the sensors with less than 35% pollution level and where the number of sensors is maximum, it's suggested to reduce the number of sensors, and to maintain the current numbers for the remaining cases. 
