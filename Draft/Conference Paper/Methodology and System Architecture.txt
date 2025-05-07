@@ -43,6 +43,10 @@ Multiple grouping strategies were applied to reduce the data volume and examine 
 
 J. Clustering data
 
+There are mainly two reasons why we chose DBSCAN over K-Means for this pollution-based data.
+First, K-Means is generally not a good idea to use for pollution sensors because it assumes spherical clusters and requires a predefined number of clusters. Whereas DBSCAN is suitable for spatial and environmental data. DBSCAN identifies clusters based on the density of data and does not require predefining the number of clusters. This is ideal for pollution data, where areas of concern are unpredictable in urban areas.
+Secondly, K-Means makes each point a cluster, even the outliers, which can give errors in the result. But DBSCAN removes the outliers by giving them a -1 value and takes the rest of the points as clusters. Additionally, DBSCAN worked perfectly with geographic coordinates, it can capture irregular shapes, which is extremely useful in pollution-based data.
+
 K. Minimum Spanning Tree
 The minimum spanning tree algorithm was then implemented to the grouped only and grouped and clustered data. As the pollution level is essential part to generate the MST for monitoring pollution networks, Kruskal’s algorithm has been selected to implement the requirement for this study.  
 
