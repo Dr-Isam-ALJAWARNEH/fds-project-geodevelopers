@@ -27,6 +27,7 @@ Due to the utilization of global values for Eps and MinPts, DBSCAN may merge two
 
 
 F. Dijkstra’s algorithm
+The Dijkstra approach determines the shortest path in weighted graphs (networks) by iteratively selecting the node with the smallest distance and updating its adjacent nodes [9].
 
 
 G. Kruskal's algorithm
@@ -49,7 +50,7 @@ L. Sensors Optimizing suggestion
 In this subsection, the grouped data be geohash was analyzed based on the number of available devices and pollution records. Then, based on the average pollution level for each number of sensors, a suggestion to increase / decrease / maintain the number of sensors in each geohash was performed. 
 
 M. Accuracy Calculations
-To measure accuracy, as demonstrated in [9] in which the average total running time and clustering accuracy are used as performance metrics during empirical evaluations of their algorithm where it the study evaluation includes comparisons against k-means and other MST algorithms under various conditions. As a result, this paper refers to the same metrics for assessing the efficiency of the algorithm.
+To measure accuracy, as demonstrated in [10] in which the average total running time and clustering accuracy are used as performance metrics during empirical evaluations of their algorithm where it the study evaluation includes comparisons against k-means and other MST algorithms under various conditions. As a result, this paper refers to the same metrics for assessing the efficiency of the algorithm.
 
 
 
@@ -63,4 +64,6 @@ To measure accuracy, as demonstrated in [9] in which the average total running t
 [6] B. a. G. R. J. Actkinson, "Detecting plumes in mobile air quality monitoring time series with density-based spatial clustering of applications with noise," Atmospheric Measurement Techniques (AMT), vol. 16, no. 14, p. 3547–3559, 2023. 
 [7] T. Kanungo, D. Mount, N. Netanyahu, C. Piatko, R. Silverman and A. Wu, "An efficient k-means clustering algorithm: analysis and implementation," IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 24, no. 7, p. 881–892, 2002. 
 [8] H.-P. K. J. S. X. X. Martin Ester, "A Density-Based Algorithm for Discovering Clusters in large spatial databases with noise," in 2nd International Conference on Knowledge Discovery and Data Mining (KDD), USA, 1996. 
-[9] X. Wang, X. Wang and D. Mitchell Wilkes, "A Divide-and-Conquer Approach for Minimum Spanning Tree-Based Clustering," in IEEE Transactions on Knowledge and Data Engineering, vol. 21, no. 7, pp. 945-958, July 2009, doi: 10.1109/TKDE.2009.37.
+[9] K. Wei, Y. Gao, W. Zhang, and S. Lin, "A Modified Dijkstra's Algorithm for Solving the Problem of Finding the Maximum Load Path," 2019 IEEE 2nd International Conference on Information and Computer Technologies, Guangzhou, China, 2019, pp. 978-1-7281-3323-2.
+[10] X. Wang, X. Wang and D. Mitchell Wilkes, "A Divide-and-Conquer Approach for Minimum Spanning Tree-Based Clustering," in IEEE Transactions on Knowledge and Data Engineering, vol. 21, no. 7, pp. 945-958, July 2009, doi: 10.1109/TKDE.2009.37.
+
