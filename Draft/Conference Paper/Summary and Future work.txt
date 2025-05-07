@@ -5,3 +5,6 @@ What to Include:
   3. Limitations: Briefly acknowledge any limitations of your study that may affect the interpretation of results.
   4. Propose Future Directions: Suggest specific areas for improvement or further exploration based on your findings. Include potential research questions or challenges to tackle.
   5. Practical Applications: If applicable, mention how your work could be extended for real-world applications or interdisciplinary studies.
+
+
+Although the valuable insights gained through this study, it still has limitations. This study analyzed a representative portion of the original data and this happened because of computational and visualization constraints. In case more data was covered, this would reveal more seasonal and spatial behaviours. In addition to that, the analysis did not include meteorological data such as wind speed and solar radiation which would influence pollutant distribution. The result is generalizable to other urban air quality networks in which the low-cost sensors increase flexibility however, it increases challenges related to data quality. By preprocessing data and develop insights with optimization algorithms, cities can utilize smarter and easy to implement adaptive sensor networks that will improve public health.
