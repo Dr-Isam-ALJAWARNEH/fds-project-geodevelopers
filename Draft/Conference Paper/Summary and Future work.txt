@@ -5,3 +5,6 @@ What to Include:
   3. Limitations: Briefly acknowledge any limitations of your study that may affect the interpretation of results.
   4. Propose Future Directions: Suggest specific areas for improvement or further exploration based on your findings. Include potential research questions or challenges to tackle.
   5. Practical Applications: If applicable, mention how your work could be extended for real-world applications or interdisciplinary studies.
+
+
+This study focuses on the spatial analysis and optimizing monitoring network through the minimum spanning tree algorithm based on the shortest weighted path collected from Chicago city. It was evident from the results that the best criteria to generate the shortest path is to group the data by geohash to find the average pollution level, apply clustering using DBSCAN algorithm to consider the pollution for nearby points, then generate the minimum spanning tree using Kruskal algorithm. This will contribute to smarter sensing strategies.
