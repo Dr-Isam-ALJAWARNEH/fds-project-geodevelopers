@@ -24,3 +24,24 @@ What to Include:
   6. Integration:
      - Seamlessly integrate the results and discussion to maintain a logical flow.
      - Avoid repeating the same information in different formats (e.g., text and tables).
+
+Atmospheric air quality is analyzed and explored using hyperlocal air quality dataset collected from sensors spread in differend areas in the city of Chicago. The dataset includes calibrated and uncalibrated pollutant values, concurrently with meterological and device perfomance parameters. The aim is to understand the behavior, structure, and quality of temporal behavior of the parameters that supports the optimized network design developed using the technique of Minimum Spanning Tree (MST).
+
+A. Dataset Exploration and Preprocessing
+An initial check of the data was implemented in which it is shown that temporal data such as (latitude, longitude, time) were complete unlike pollutant readings like CalibratedPM25, CalibratedO3, and CalibratedNO2 that each of them had 34,277 missing entries. The way it executed is by filtering the the data to return the count of missing values in each column for visualizations and trend analyses. 
+The missing data revealed significant gaps in pollutant-related fields:
+- CalibratedPM25: 34277, ---% missing
+- CalibratedO3: 34277, ---% missing
+- CalibratedNO2: 34277, ---% missing
+
+The missing values that were shown across all three calibrated pollutant columns in identical proportions suggests that it is either due to simultaneous sensor outages or centralized calibration pipeline issues. The empty values were excluded from analysis to ensure reliability of visualization and statistical observation. Consequently, a cleaned subset of 1000 complete records were sampled for each pollutant facilitate the visualization without having computational overhead.
+
+B. Temporal Analysis of Calibrated Pollutants
+Scatter plots were used to view the behavior of calibrated pollutant concentrations over time:
+
+1. The cleaned time-series data shows that there are fluctuations in PM2.5 levels, having many peaks and troughs indicating variation that might be linked to traffic, construction, or seasonal heat. Colder months showed high PM2.5 many times which is aligning with the literature that ... search for something related to matter and combustion  
+
+
+2. The O3 plot indicated distinct seasonal patterns with raised ozone levels is shown during warmer months. This proves photochimical behavior.... (refer to paper for this)
+
+3. 
