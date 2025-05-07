@@ -19,14 +19,13 @@ Sampling is essential part of data science, as it involves the process of select
 D. K-Means algorithm
 The K-Means clustering algorithm is a dividing clustering method that separates data into K number of groups. The K-means algorithm is particularly effective at rapidly and efficiently clustering large amounts of data.
 K-Means clustering algorithm is an unsupervised clustering algorithm in which the centroids are initialized with any number. The K-Means algorithm is very sensitive to the starting vertex. It is used to analyze air pollution to improve both the correctness and proficiency of the clustering process. [5]
-K-Means requires clusters to be defined in advance and counts the outliers, whereas DBSCAN checks the data, creates the clusters based on the data, and removes the outliers as well. For our pollution-based data, we went for DBSCAN, which is one of the ideal methods of clustering for pollution-based data.
-We started by taking the relevant columns and applying a scaling feature to standardize the data. K-Means was applied by using 5 clusters to partition the scaled data into groups based on proximity. The scaled centroids were transformed back into the geographic coordinates.
-
+The goal is to find a set of k points in ℝᵈ, called centers, that minimizes the mean squared distance between each data point and its closest center given a collection of n data points in real d-dimensional space, ℝᵈ, and an integer k. This clustering technique falls under variance-based clustering, and the metric is often called squared-error distortion [8].
 
 E. DBSCAN algorithm
 
 DBSCAN was invented by Ester et al. in 1996. A clustering algorithm that clusters points based on whether they fall into a predetermined neighbourhood with other points. This method can cluster points with more complicated shapes and is not sensitive to initial values.  This algorithm does not require clustering for all points, letting those points that do not fall into a particular cluster be defined as noise. [6]
-The process started by removing the NaN values from Latitude, Longitude, and the pollution column. It scales the data using StandardScaler to ensure constant distance. The DBSCAN algorithm was applied by giving a 0.3 value of epsilon, which defines how close the other points should be so that they can be considered as neighbours. This is done to pinpoint the density of our data. Afterwards, the noises were removed by giving it a -1 value, then grouped the remaining data, and computed centroids from it. 
+DBSCAN initiates the identification of a cluster with an arbitrary point p and thereafter retrieves all points that are density-reachable from p concerning Eps and MinPts. If p is a core point, this procedure produces a cluster with respect to. Eps and MinPts. If p is a border point, no points are density-reachable from p, and DBSCAN proceeds to the subsequent point in the database.
+Due to the utilization of global values for Eps and MinPts, DBSCAN may merge two clusters into a single cluster, if clusters of different densities are in nearby to one another [9] .
 
 
 F. Centroids 
@@ -49,5 +48,5 @@ Alternative solution, Kruskal's algorithm, introduced in 1956 by Joseph Kruskal 
 [5] R. M. D. M. G. S. R. Grace R. Kingsy and B. N. R. K. Usha, "Air Pollution Analysis Using Enhanced K-Means Clustering Algorithm for Real-Time Sensor Data," in 2016 IEEE Region 10 Conference (TENCON), Singapore, 2016. 
 [6] B. a. G. R. J. Actkinson, "Detecting plumes in mobile air quality monitoring time series with density-based spatial clustering of applications with noise," Atmospheric Measurement Techniques (AMT), vol. 16, no. 14, p. 3547–3559, 2023. 
 [7] S. K. Uppada, "Centroid Based Clustering Algorithms – A Clarion Study," International Journal of Computer Science and Information Technologies (IJCSIT), vol. 5, no. 6, p. 7309–7313, 2014. 
-
-
+[8] T. Kanungo, D. Mount, N. Netanyahu, C. Piatko, R. Silverman and A. Wu, "An efficient k-means clustering algorithm: analysis and implementation," IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 24, no. 7, p. 881–892, 2002. 
+[9] H.-P. K. J. S. X. X. Martin Ester, "A Density-Based Algorithm for Discovering Clusters in large spatial databases with noise," in 2nd International Conference on Knowledge Discovery and Data Mining (KDD), USA, 1996. 
