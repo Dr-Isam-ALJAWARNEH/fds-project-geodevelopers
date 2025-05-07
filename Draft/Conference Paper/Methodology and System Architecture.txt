@@ -49,7 +49,7 @@ L. Sensors Optimizing suggestion
 In this subsection, the grouped data be geohash was analyzed based on the number of available devices and pollution records. Then, based on the average pollution level for each number of sensors, a suggestion to increase / decrease / maintain the number of sensors in each geohash was performed. 
 
 M. Accuracy Calculations
-To measure accuracy, as demonstrated in [8] in which the average total running time and clustering accuracy are used as performance metrics during empirical evaluations of their algorithm where it the study evaluation includes comparisons against k-means and other MST algorithms under various conditions. As a result, this paper refers to the same metrics for assessing the efficiency of the algorithm.
+To measure accuracy, as demonstrated in [9] in which the average total running time and clustering accuracy are used as performance metrics during empirical evaluations of their algorithm where it the study evaluation includes comparisons against k-means and other MST algorithms under various conditions. As a result, this paper refers to the same metrics for assessing the efficiency of the algorithm.
 
 
 
