@@ -48,7 +48,9 @@ First, K-Means is generally not a good idea to use for pollution sensors because
 Secondly, K-Means makes each point a cluster, even the outliers, which can give errors in the result. But DBSCAN removes the outliers by giving them a -1 value and takes the rest of the points as clusters. Additionally, DBSCAN worked perfectly with geographic coordinates, it can capture irregular shapes, which is extremely useful in pollution-based data.
 
 K. Minimum Spanning Tree
-The minimum spanning tree algorithm was then implemented to the grouped only and grouped and clustered data. As the pollution level is essential part to generate the MST for monitoring pollution networks, Kruskal’s algorithm has been selected to implement the requirement for this study.  
+The Minimum Spanning Tree (MST) is a selection of edges in a connected weighted graph that links all vertices with the lowest possible total edge weight while avoiding cycles [12]. Kruskal’s algorithm, a greedy technique, constructs the MST by ordering the edges in increasing weight and adding the smallest edges that do not create a cycle [12].We applied this method to our study on grouped-only and grouped-and-clustered data. The MST for monitoring pollution networks heavily relies on pollution levels, such as PM2.5, and Kruskal's algorithm was selected to meet the required specifications. Kruskal's algorithm effectively identifies the best routes for sensor placement and data transmission by using pollution data as weights. For large-scale pollution monitoring networks, this approach ensures that the monitoring network is both cost-effective and efficient.
+
+
 
 L. Sensors Optimizing suggestion
 In this subsection, the grouped data be geohash was analyzed based on the number of available devices and pollution records. Then, based on the average pollution level for each number of sensors, a suggestion to increase / decrease / maintain the number of sensors in each geohash was performed. 
@@ -71,5 +73,5 @@ To measure accuracy, as demonstrated in [10] in which the average total running 
 [9] K. Wei, Y. Gao, W. Zhang, and S. Lin, "A Modified Dijkstra's Algorithm for Solving the Problem of Finding the Maximum Load Path," 2019 IEEE 2nd International Conference on Information and Computer Technologies, Guangzhou, China, 2019, pp. 978-1-7281-3323-2.
 [10] X. Wang, X. Wang and D. Mitchell Wilkes, "A Divide-and-Conquer Approach for Minimum Spanning Tree-Based Clustering," in IEEE Transactions on Knowledge and Data Engineering, vol. 21, no. 7, pp. 945-958, July 2009, doi: 10.1109/TKDE.2009.37.
 [11] Rakhmat Dedi Gunawan, Riduwan Napianto, Rohmat Indra Borman, Irma Hanifah, "Implementation of Dijkstra's Algorithm in Determining the Shortest Path (Case Study: Specialist Doctor Search in Bandar Lampung)," International Journal of Information System and Computer Science, 2019.
-
+[12] A.-A. Mamun and S. Rajasekaran, "An Efficient Minimum Spanning Tree Algorithm," 2016 IEEE Symposium on Computers and Communication (ISCC), Messina, Italy, 2016, pp. 949–954, doi: 10.1109/ISCC.2016.7543862.
 
