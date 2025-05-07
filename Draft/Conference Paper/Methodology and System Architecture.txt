@@ -3,43 +3,50 @@ What to Include: Detailed description of the methods, tools, and techniques used
 
 Methodology
 
-This section explains the methodology implemented to analyze the spatial pollution data and generate effective minimum spanning tree path for optimizing pollution monitoring networks.
+This section explains the methodology implemented to analyze the spatial pollution data and generate effective minimum spanning tree path for optimizing pollution monitoring networks. As shown in figure 1.
 
-It is essential to collect a large data set during different timestamps or from different resources. A large data set has been collected, analyzed based on the available environmental and functional variables to select the best pollution columns, filtered to remove the missing values and outliers, multiple tables was generated based on different criteria’s grouping, sampling and clustering to generate the best MST path, and provide a recommendation to increase / decrease the number of required sensor in each cluster. The reason behind each process is explained in the following subsections.
+It is essential to collect a large data set during different timestamps and from diverse resources. A large data set has been collected, analyzed based on the available environmental and functional variables to select the best pollution columns, filtered to remove the missing values and outliers, grouped through multiple different criteria’s, sampled and clustered to generate the best MST path, and recommend for sensors optimization. The reason behind each process is explained in the following subsections.
 
-A. Geohash Encoding
-Geohash, introduced in 2008 by Gustavo Niemeyer, is simply an approach to encodes the geographic coordinates (latitude and longitude) into a short numerical string to aggregate nearby points into grid-like regions [1]. Geohash precision varies based on the encoded characters, where the larger characters is, the higher spatial resolution and the smaller area represented by the grid [2]. This method is effective in studies involving a proximate spatial analysis as it simplifies and speed up the data querying process. In this study, it is used to group the sensors data and get the average pollution level. 
+A. Algorithms Overview
+1. Geohash Encoding
+Geohash, introduced in 2008 by Gustavo Niemeyer, is simply an approach to encodes the geographic coordinates (latitude and longitude) into a short numerical string to aggregate nearby points into grid-like regions [1]. Geohash precision varies based on the encoded characters, where the larger characters is, the higher spatial resolution and the smaller area represented by the grid [2]. This method is effective in studies involving a proximate spatial analysis as it simplifies and speed up the data querying process. 
 
-B. Sampling
-Sampling is essential part of data science, as it involves the process of selecting a subset of observation from population or large dataset. Samples enable scientist to reduce the data volume while preserving the population characteristics, ensure proper representative, minimize redundancy and optimize resources. Some of the important methods of sampling are sampling with replacement, when the sampled individual is selected from array and it possible to select the same sample again, and the sampling with-out replacement, when the sampled individual is not in returned to the population until all required individuals are selected [3], which will be used in this study to select a random sample from population to balance the representative preservation and allow efficient clustering process. 
+2. Sampling
+Sampling is essential part of data science, as it involves the process of selecting a subset of observation from population or large dataset. Samples enable scientist to reduce the data volume while preserving the population characteristics, ensure proper representative, minimize redundancy and optimize resources. Some of the important methods of sampling are sampling with replacement, when the sampled individual is selected from array and it possible to select the same sample again, the second is sampling with-out replacement, when the sampled individual is not in returned to the population until all required individuals are selected [3], which will be used in this study to select a random sample from population to balance the representative preservation and allow efficient clustering process. 
 
 
-D. K-Means algorithm
+3. K-Means algorithm
 The K-Means clustering algorithm is a dividing clustering method that separates data into K number of groups. The K-means algorithm is particularly effective at rapidly and efficiently clustering large amounts of data.
-K-Means clustering algorithm is an unsupervised clustering algorithm in which the centroids are initialized with any number. The K-Means algorithm is very sensitive to the starting vertex. It is used to analyze air pollution to improve both the correctness and proficiency of the clustering process. [5]
+K-Means clustering algorithm is an unsupervised clustering algorithm in which the centroids are initialized with any number. The K-Means algorithm is very sensitive to the starting vertex. It is used to analyze air pollution to improve both the correctness and proficiency of the clustering process [5]. 
 The goal is to find a set of k points in ℝᵈ, called centers, that minimizes the mean squared distance between each data point and its closest center given a collection of n data points in real d-dimensional space, ℝᵈ, and an integer k. This clustering technique falls under variance-based clustering, and the metric is often called squared-error distortion [7].
 
-E. DBSCAN algorithm
-
-DBSCAN was invented by Ester et al. in 1996. A clustering algorithm that clusters points based on whether they fall into a predetermined neighbourhood with other points. This method can cluster points with more complicated shapes and is not sensitive to initial values.  This algorithm does not require clustering for all points, letting those points that do not fall into a particular cluster be defined as noise. [6]
+4. DBSCAN algorithm
+DBSCAN was invented by Ester et al. in 1996. A clustering algorithm that clusters points based on whether they fall into a predetermined neighbourhood with other points. This method can cluster points with more complicated shapes and is not sensitive to initial values.  This algorithm does not require clustering for all points, letting those points that do not fall into a particular cluster be defined as noise [6]. 
 DBSCAN initiates the identification of a cluster with an arbitrary point p and thereafter retrieves all points that are density-reachable from p concerning Eps and MinPts. If p is a core point, this procedure produces a cluster with respect to. Eps and MinPts. If p is a border point, no points are density-reachable from p, and DBSCAN proceeds to the subsequent point in the database.
-Due to the utilization of global values for Eps and MinPts, DBSCAN may merge two clusters into a single cluster, if clusters of different densities are in nearby to one another [8] .
+Due to the utilization of global values for Eps and MinPts, DBSCAN may merge two clusters into a single cluster, if clusters of different densities are in nearby to one another [8].
 
 
+<<<<<<< Updated upstream
 F. Dijkstra’s algorithm
+=======
+5. Dijkstra’s algorithm
+"The Dijkstra approach determines the shortest path in weighted graphs (networks) by iteratively identifying the node with the smallest distance and updating its adjacent nodes [9]. This algorithm operates by selecting the node with the smallest estimated distance using a greedy method. As a result, the neighboring nodes are updated, progressively refining the path to the destination [11]. Dijkstra’s algorithm is particularly effective for networks with non-negative edge weights to ensure that shortest path is always found. Its time complexity of O((n + m) log n) makes it efficient for graphs with relatively small to moderate numbers of nodes and edges [11].
+>>>>>>> Stashed changes
 
 
-G. Kruskal's algorithm
-Alternative solution, Kruskal's algorithm, introduced in 1956 by Joseph Kruskal is used to compute the minimum spanning tree (MST) based on the weighted path without cycles. Kruskal's algorithm starts by calculating the weight between all the possible vertices pairs. After that, the weighted edges are sorted in ascending order, and the shortest edge is added to the execution query, then the second shortest edge is selected and evaluated if it can be added to the MST or it will perform a cycle, then the process is repeated until all vertices are connected without cycles [4]. The algorithm is effective for geospatial optimization tasks and network designs. In this study, the minimum spanning tree is used to find the best path to connect all sensors based on the spatial distance and the weighted pollutions average for optimizing pollution monitoring networks.
+6. Kruskal's algorithm
+Kruskal's algorithm, introduced in 1956 by Joseph Kruskal is used to compute the minimum spanning tree (MST) based on the weighted path without cycles. Kruskal's algorithm starts by calculating the weight between all the possible vertices pairs. After that, the weighted edges are sorted in ascending order, and the shortest edge is added to the execution query, then the second shortest edge is selected and evaluated if it can be added to the MST or it will perform a cycle, then the process is repeated until all vertices are connected without cycles [4]. The algorithm is effective for geospatial optimization tasks and network designs. In this study, the minimum spanning tree is used to find the best path to connect all sensors based on the spatial distance and the weighted pollutions average for optimizing pollution monitoring networks.
 
-H. Collecting and cleaning data
-For testing the clustering and minimum spanning tree algorithms, two publicly geospatial datasets were chosen. The first dataset contains air quality data collected in 121 locations in Chicago, Illinois, USA, using low-cost air quality sensing networks. The data contains the device id, city, location name, geospatial coordinates, reading time, pollution levels (PM25, calibrated PM25, calibrated O3, calibrated NO2, CO), environmental and functional variables (temperature, humidity, battery level and percentage, cell signal), the data was collected from 19 files, containing over 2.4 million readings starting from July 2021. The second is XXXXXXX. 
+B. Data Processing
+1. Collecting and cleaning data
+For testing the clustering and minimum spanning tree algorithms, two publicly geospatial datasets were chosen. The first dataset contains air quality data collected in 121 locations in Chicago, Illinois, USA, using low-cost air quality sensing networks. The data contains the device id, city, location name, geospatial coordinates, reading time, pollution levels (PM25, calibrated PM25, calibrated O3, calibrated NO2, CO), environmental and functional variables (temperature, humidity, battery level and percentage, cell signal), the data was collected from 19 files, containing over 2.4 million readings starting from July 2021. The second is Geojson file that contains the boundaries of Chicago city, used to plot the map.. 
 In this part, multiple data preprocessing and validation steps were implemented to ensure the suitability and reliability for analysis. These included comparing the five different pollution readings by time, selecting the best and reliable columns, filtering missing data and outliers.  
 Then, an analysis has been applied to see the effects of the environmental and functional variables on the selected pollution data during the available reading periods. After analyzing the effects, these columns were removed to reduce the data volume and ensure a faster running time. The selected pollution data was also normalized to check the effect of the total pollution data. In addition, geohash encoding was generating to the cleaned for further analysis. 
 
-I. Grouping and sampling data
+2. Grouping and sampling data
 Multiple grouping strategies were applied to reduce the data volume and examine the effect on the minimum spanning tree. The data was grouped by device ID and geohash codes. In addition, a random sample data without replacement with the same distribution of the different locations in the population was generated.
 
+<<<<<<< Updated upstream
 J. Clustering data
 
 K. Minimum Spanning Tree
@@ -48,6 +55,23 @@ The minimum spanning tree algorithm was then implemented to the grouped only and
 L. Sensors Optimizing suggestion
 In this subsection, the grouped data be geohash was analyzed based on the number of available devices and pollution records. Then, based on the average pollution level for each number of sensors, a suggestion to increase / decrease / maintain the number of sensors in each geohash was performed. 
 
+=======
+3. Clustering data
+There are mainly two reasons why we chose DBSCAN over K-Means for this pollution-based data.
+First, K-Means is generally not a good idea to use for pollution sensors because it assumes spherical clusters and requires a predefined number of clusters. Whereas DBSCAN is suitable for spatial and environmental data. DBSCAN identifies clusters based on the density of data and does not require predefining the number of clusters. This is ideal for pollution data, where areas of concern are unpredictable in urban areas.
+Secondly, K-Means makes each point a cluster, even the outliers, which can give errors in the result. But DBSCAN removes the outliers by giving them a -1 value and takes the rest of the points as clusters. Additionally, DBSCAN worked perfectly with geographic coordinates, it can capture irregular shapes, which is extremely useful in pollution-based data.
+
+4. Minimum Spanning Tree
+The Minimum Spanning Tree (MST) is a selection of edges in a connected weighted graph that links all vertices with the lowest possible total edge weight while avoiding cycles [12]. Kruskal’s algorithm, a greedy technique, constructs the MST by ordering the edges in increasing weight and adding the smallest edges that do not create a cycle [12].We applied this method to our study on grouped-only and grouped-and-clustered data. The MST for monitoring pollution networks heavily relies on pollution levels, such as PM2.5, and Kruskal's algorithm was selected to meet the required specifications. Kruskal's algorithm effectively identifies the best routes for sensor placement and data transmission by using pollution data as weights. For large-scale pollution monitoring networks, this approach ensures that the monitoring network is both cost-effective and efficient.
+
+5. Sensors Optimizing suggestion
+In this subsection, the grouped data be geohash was analyzed based on the number of available devices and pollution records. Then, based on the average pollution level for each number of sensors, a suggestion to increase / decrease / maintain the number of sensors in each geohash was performed. 
+
+6. Accuracy Calculations
+To measure accuracy, as demonstrated in [10] in which the average total running time and clustering accuracy are used as performance metrics during empirical evaluations of their algorithm where it the study evaluation includes comparisons against k-means and other MST algorithms under various conditions. As a result, this paper refers to the same metrics for assessing the efficiency of the algorithm.
+
+
+>>>>>>> Stashed changes
 
 
 
