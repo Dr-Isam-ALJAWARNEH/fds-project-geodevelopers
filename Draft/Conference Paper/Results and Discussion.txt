@@ -25,23 +25,41 @@ What to Include:
      - Seamlessly integrate the results and discussion to maintain a logical flow.
      - Avoid repeating the same information in different formats (e.g., text and tables).
 
-Atmospheric air quality is analyzed and explored using hyperlocal air quality dataset collected from sensors spread in differend areas in the city of Chicago. The dataset includes calibrated and uncalibrated pollutant values, concurrently with meterological and device perfomance parameters. The aim is to understand the behavior, structure, and quality of temporal behavior of the parameters that supports the optimized network design developed using the technique of Minimum Spanning Tree (MST).
+Atmospheric air quality is analyzed and explored using hyperlocal air quality dataset collected from sensors spread in different areas in the city of Chicago. The dataset includes calibrated and uncalibrated pollutant values, concurrently with meteorological and device performance parameters. The aim is to understand the behavior, structure, and quality of the parameters that supports the optimized network design developed using the technique of Minimum Spanning Tree (MST).
 
 A. Dataset Exploration and Preprocessing
-An initial check of the data was implemented in which it is shown that temporal data such as (latitude, longitude, time) were complete unlike pollutant readings like CalibratedPM25, CalibratedO3, and CalibratedNO2 that each of them had 34,277 missing entries. The way it executed is by filtering the the data to return the count of missing values in each column for visualizations and trend analyses. 
+An initial check to the 2.46 million data records was implemented in which it is shown that the uncalibrated pollutant values (PM25) shows unreasonable outliers, unlike calibrated readings (CalibratedPM25, CalibratedO3, and CalibratedNO2) that shows reliable data but with missing 34,277 entries for each of them. The way it executed is by filtering the data to return the count of missing values in each column for visualizations and trend analyses. 
 The missing data revealed significant gaps in pollutant-related fields:
-- CalibratedPM25: 34277, ---% missing
-- CalibratedO3: 34277, ---% missing
-- CalibratedNO2: 34277, ---% missing
+- CalibratedPM25: 34277, 1.4% missing
+- CalibratedO3: 34277, 1.4% missing
+- CalibratedNO2: 34277, 1.4% missing
 
-The missing values that were shown across all three calibrated pollutant columns in identical proportions suggests that it is either due to simultaneous sensor outages or centralized calibration pipeline issues. The empty values were excluded from analysis to ensure reliability of visualization and statistical observation. Consequently, a cleaned subset of 1000 complete records were sampled for each pollutant facilitate the visualization without having computational overhead.
+The missing values that were shown across all three calibrated pollutant columns in identical proportions suggests that it is either due to simultaneous sensor outages or centralized calibration pipeline issues that caused outliers to the actual readings. The empty values were excluded from analysis to ensure reliability of visualization and statistical observation. This filtration process has removed the outliers in pm25 column.
 
 B. Temporal Analysis of Calibrated Pollutants
-Scatter plots were used to view the behavior of calibrated pollutant concentrations over time:
+The further analysis has been applied to the calibrated pollutants, Scatter plots were used to view the behavior of calibrated pollutant concentrations over time and the environmental variables:
 
-1. The cleaned time-series data shows that there are fluctuations in PM2.5 levels, having many peaks and troughs indicating variation that might be linked to traffic, construction, or seasonal heat. Colder months showed high PM2.5 many times which is aligning with the literature that ... search for something related to matter and combustion  
+1. The cleaned time-series data shows that the trending line is horizontal indicating no relationship between pollutant data and time during the collected period (July 2021 - October 2021). 
 
-
-2. The O3 plot indicated distinct seasonal patterns with raised ozone levels is shown during warmer months. This proves photochimical behavior.... (refer to paper for this)
+2. 
 
 3. 
+
+Based on the earlier analysis, the device id, location, time and calibrated pollution columns were selected for further analysis. following this selection, a 6 precisoin geohash codes were generated to support the spatial grouping, and each calibrated pollutant column was normalized to a [0, 1] scale using the minimum and maximum values to ensure a consistant comparison between the columns, and to calculate the total sum of the normalized columns for the study. 
+
+Five different grouping strategies were applied to the dataset, each varying in spatial, sensor or clustering aggregation logic. For each of these aggregation, a minimum spanning tree was generated to analyze the spatial connectivity based on the pollution weight.
+ 
+The first strategy was to group the data by device ID, calculate the count of the readings and the average value for location and pollutions columns. The aggregation showed that 121 different sensors were used for this analysis. It was observed that certains sensors contributed a large number of readings (approximiatley 28 thousands), were few had between 5 ~ 10 readings only. MST logic was then applied to this group using the location and total normalized pollution level, and a path of weighted 3.44 was generated. 
+
+The second strategy was to use the same sensor grouping, and generate cluster id using DBSCAN method based on the distance with 0.3 epsilon and the total normalized pollution level. The centroid points was then generated based on the average latitude, longitude values, and 88 different vertices was generated. The same MST logic reapplied for this grouping and the weighted pasth was reduced to 3.14, which indicates the benefits of using clustering to group the data specially when the monitoring networks doesn't requred the direct connection between each sensor. 
+
+The third strategy was to group the data by geohash code, calcluate the number of sensors in each geohash, the reading counts and the average for the remaining columns. Compared to the sensors grouping, the aggregation showed that the sensors are placed in 106 different geohash grids. The total number of the measured records has also increased were the maximum areas had the average of around 56 thousand readings. The grouping has also showed that the number of sensors in each geohash is between 1 to 3, but most of the areas had 1 sensor only. The MST method was also applied in the same way, and a path of 3.33 was generated, which is slightly better than grouping by sensors only, but higher than the clustered sensors data. 
+
+The fourth strategy was to use the geohash grouped data, and implenet the DBSCAN method with the same epsilon value. The clustering and centroid method has generate 83 different vertices. The MST logic then produced a path of 3.10, which indicates that grouping by geohash then clustering the data produce a better path compared to the above strategies. 
+
+The fivth strategy was to sample 20% of the data, with stratisifcal sampling distribution based on the reading location. As the data was large without grouping, applying the clustering based on the pollution level, has generated multiple nearby points with different pollution concentration. Due to the high number of vertices, and pollutioon level, the MST showed a higher weighted path compared to the above strategies with value of 4.34.
+
+The final outcome of this analysis, the fourth strategy, where grouped the data by geohash, to get the average pollution levels, then clustering them, has shown the best average path that will work over the year, the weight might show a lower value compared the most high pollutant period or higher value during the clean or low pollutional period. 
+
+
+Following the best minimum spanning tree analysis, the number of sensors in each geohash compared to the pollution levels and number of observed records were analyzed, to optimze a change to the number of sensors. The sensors range for each area was considered based on the available records which is between 1 to 3 sensors in each geohash. A suggestion to collect more data when the availbles records in the selected areas were less than 100 were returned, and to increae the number of sensors when the pollution level is greater than 65% and the number of sensors are less than the maximum number, for the sensros with less than 35% pollution level and where the number of sensors is maximum, it's suggested to reduce the number of sensors, and to maintain the current numbers for the remaining cases. 
