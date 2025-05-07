@@ -27,7 +27,7 @@ Due to the utilization of global values for Eps and MinPts, DBSCAN may merge two
 
 
 F. Dijkstra’s algorithm
-The Dijkstra approach determines the shortest path in weighted graphs (networks) by iteratively selecting the node with the smallest distance and updating its adjacent nodes [9].
+"The Dijkstra approach determines the shortest path in weighted graphs (networks) by iteratively identifying the node with the smallest distance and updating its adjacent nodes [9]. This algorithm operates by selecting the node with the smallest estimated distance using a greedy method. As a result, the neighboring nodes are updated, progressively refining the path to the destination [11]. Dijkstra’s algorithm is particularly effective for networks with non-negative edge weights to ensure that shortest path is always found. Its time complexity of O((n + m) log n) makes it efficient for graphs with relatively small to moderate numbers of nodes and edges [11].
 
 
 G. Kruskal's algorithm
@@ -66,4 +66,6 @@ To measure accuracy, as demonstrated in [10] in which the average total running 
 [8] H.-P. K. J. S. X. X. Martin Ester, "A Density-Based Algorithm for Discovering Clusters in large spatial databases with noise," in 2nd International Conference on Knowledge Discovery and Data Mining (KDD), USA, 1996. 
 [9] K. Wei, Y. Gao, W. Zhang, and S. Lin, "A Modified Dijkstra's Algorithm for Solving the Problem of Finding the Maximum Load Path," 2019 IEEE 2nd International Conference on Information and Computer Technologies, Guangzhou, China, 2019, pp. 978-1-7281-3323-2.
 [10] X. Wang, X. Wang and D. Mitchell Wilkes, "A Divide-and-Conquer Approach for Minimum Spanning Tree-Based Clustering," in IEEE Transactions on Knowledge and Data Engineering, vol. 21, no. 7, pp. 945-958, July 2009, doi: 10.1109/TKDE.2009.37.
+[11] Rakhmat Dedi Gunawan, Riduwan Napianto, Rohmat Indra Borman, Irma Hanifah, "Implementation of Dijkstra's Algorithm in Determining the Shortest Path (Case Study: Specialist Doctor Search in Bandar Lampung)," International Journal of Information System and Computer Science, 2019.
+
 
