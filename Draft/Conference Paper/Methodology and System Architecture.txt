@@ -23,7 +23,7 @@ The goal is to find a set of k points in ℝᵈ, called centers, that minimizes 
 4. DBSCAN algorithm
 DBSCAN was invented by Ester et al. in 1996. A clustering algorithm that clusters points based on whether they fall into a predetermined neighbourhood with other points. This method can cluster points with more complicated shapes and is not sensitive to initial values.  This algorithm does not require clustering for all points, letting those points that do not fall into a particular cluster be defined as noise [6]. 
 DBSCAN initiates the identification of a cluster with an arbitrary point p and thereafter retrieves all points that are density-reachable from p concerning Eps and MinPts. If p is a core point, this procedure produces a cluster with respect to. Eps and MinPts. If p is a border point, no points are density-reachable from p, and DBSCAN proceeds to the subsequent point in the database.
-Due to the utilization of global values for Eps and MinPts, DBSCAN may merge two clusters into a single cluster, if clusters of different densities are in nearby to one another [8].
+Due to the utilization of global values for Eps and MinPts, DBSCAN may merge two clusters into a single cluster, if clusters of different densities are in nearby to one another [8]. As demonstrated by Aljawarneh et al. [13] clustering algorithm, particularly Density-Based Spatial Clustering of Applications with Noise (DBSCAN), that is important for successfully grouping users based on their historical records and location data. Incorporating such clustering methods could optimize participant selection based on geospatial data.
 
 
 
@@ -75,4 +75,6 @@ To measure accuracy, as demonstrated in [10] in which the average total running 
 [10] X. Wang, X. Wang and D. Mitchell Wilkes, "A Divide-and-Conquer Approach for Minimum Spanning Tree-Based Clustering," in IEEE Transactions on Knowledge and Data Engineering, vol. 21, no. 7, pp. 945-958, July 2009, doi: 10.1109/TKDE.2009.37.
 [11] Rakhmat Dedi Gunawan, Riduwan Napianto, Rohmat Indra Borman, Irma Hanifah, "Implementation of Dijkstra's Algorithm in Determining the Shortest Path (Case Study: Specialist Doctor Search in Bandar Lampung)," International Journal of Information System and Computer Science, 2019.
 [12] A.-A. Mamun and S. Rajasekaran, "An Efficient Minimum Spanning Tree Algorithm," 2016 IEEE Symposium on Computers and Communication (ISCC), Messina, Italy, 2016, pp. 949–954, doi: 10.1109/ISCC.2016.7543862.
+[13] I. M. Aljawarneh, P. Bellavista, A. Corradi, R. Montanari, L. Foschini and A. Zanotti, "Efficient spark-based framework for big geospatial data query processing and analysis," 2017 IEEE Symposium on Computers and Communications (ISCC), Heraklion, Greece, 2017, pp. 851-856, doi: 10.1109/ISCC.2017.8024633.
+
 
