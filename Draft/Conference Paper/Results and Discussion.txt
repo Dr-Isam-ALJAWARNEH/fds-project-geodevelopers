@@ -80,3 +80,22 @@ The final outcome of this analysis, the fourth strategy, were grouping the data 
 
 
 Following the best minimum spanning tree analysis, the number of sensors in each geohash compared to the pollution levels and number of observed records were analyzed, to optimize a change to the number of sensors. The sensors range for each area was considered based on the available records which is between 1 to 3 sensors in each geohash. A suggestion to collect more data when the available records in the selected areas were less than 100 were returned, and to increase the number of sensors when the pollution level is greater than 65% and the number of sensors are less than the maximum number, for the sensors with less than 35% pollution level and where the number of sensors is maximum, it's suggested to reduce the number of sensors, and to maintain the current numbers for the remaining cases. 
+
+Figure 7 illustrates the spatial distribution of air pol-
+lutants—Calibrated PM2.5, O3, and NO2—across Chicago
+neighborhoods. Each choropleth map visually represents the
+average concentration levels using color gradients, where
+darker shades indicate higher pollutant levels. This side-by-
+side comparison enables clear identification of areas with
+elevated pollution, helping uncover spatial patterns and in-
+form localized environmental interventions. These maps were
+generated using spatial joins and Folium visualizations based
+on real sensor data. The neighborhood boundary GeoJSON
+was sourced from a public GitHub repository [22] , and the
+environmental sensor readings were taken from the dataset
+used in this project [23].
+[22] M. Black, ”Chicago Neighborhoods GeoJSON,” GitHub, [Online].
+Available: https://github.com/blackmad/neighborhoods
+[23] I. Aljawarneh, ”AQ data – Chicago Air Quality Dataset,” GitHub, [On-
+line]. Available: https://github.com/IsamAljawarneh/datasets/tree/master/
+data/Chicago/AQ data
