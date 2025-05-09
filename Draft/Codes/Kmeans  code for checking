@@ -1,3 +1,4 @@
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -6,35 +7,35 @@ from sklearn.preprocessing import StandardScaler
 
 # Step 1: Filter up to 300,000 valid rows
 
-subset = chicago\_data.dropna(subset=\['Latitude', 'Longitude', 'CalibratedPM25']).head(300000).copy()
+subset = chicago_data.dropna(subset=['Latitude', 'Longitude', 'CalibratedPM25']).head(300000).copy()
 
 # Step 2: Extract features and scale them
 
-features = subset\[\['Latitude', 'Longitude', 'CalibratedPM25']].values
+features = subset[['Latitude', 'Longitude', 'CalibratedPM25']].values
 scaler = StandardScaler()
-scaled\_features = scaler.fit\_transform(features)
+scaled_features = scaler.fit_transform(features)
 
 # Step 3: Apply KMeans
 
-n\_clusters = 5  # You can adjust this number based on your data
-kmeans = KMeans(n\_clusters=n\_clusters, random\_state=42, n\_init='auto')
-labels = kmeans.fit\_predict(scaled\_features)
-subset\['Cluster'] = labels
+n_clusters = 20  # You can adjust this number based on your data
+kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init='auto')
+labels = kmeans.fit_predict(scaled_features)
+subset['Cluster'] = labels
 
 # Step 4: Calculate centroids
 
-centroids\_scaled = kmeans.cluster\_centers\_
-centroids = scaler.inverse\_transform(centroids\_scaled)
-centroids\_df = pd.DataFrame(centroids, columns=\['Latitude', 'Longitude', 'CalibratedPM25'])
+centroids_scaled = kmeans.cluster_centers_
+centroids = scaler.inverse_transform(centroids_scaled)
+centroids_df = pd.DataFrame(centroids, columns=['Latitude', 'Longitude', 'CalibratedPM25'])
 
 # Step 5: Plot
 
 plt.figure(figsize=(14, 12))
 
 plt.scatter(
-subset\['Longitude'],
-subset\['Latitude'],
-c=subset\['Cluster'],
+subset['Longitude'],
+subset['Latitude'],
+c=subset['Cluster'],
 cmap='tab10',
 s=15,
 alpha=0.7,
@@ -42,8 +43,8 @@ label='Sensor Points'
 )
 
 plt.scatter(
-centroids\_df\['Longitude'],
-centroids\_df\['Latitude'],
+centroids_df['Longitude'],
+centroids_df['Latitude'],
 c='red',
 s=80,
 marker='o',
@@ -55,7 +56,5 @@ plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 plt.legend()
 plt.grid(True)
-plt.tight\_layout()
+plt.tight_layout()
 plt.show()
-
-
